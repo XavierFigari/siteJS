@@ -1,19 +1,22 @@
-
-.box {
-    border: 1px solid brown;
-}
-
 .flex {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.feedContainer {
-
+#feedBlock{
+    /*border: 1px solid brown;*/
 }
-.galleryContainer {
 
+.book {
+    width: 250px;
+    padding: 5px;
+    margin: 5px ;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px black;
 }
-.gameContainer {
 
+h3 {
+    color: #ff7b0b
 }
+
