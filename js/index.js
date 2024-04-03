@@ -17,6 +17,20 @@ window.onclick = function (event) {
     }
 }
 
+// ====================== formulaire ====================
+const form = document.querySelector('form');
+form.addEventListener("submit", ev => {
+    ev.preventDefault();
+    const formData = new FormData(form);
+    const entries = formData.entries();
+    const book = Object.fromEntries(entries);
+    
+    // const array = Array.from(entries).reduce((somme,value) => {
+    //     somme[value[0]] = value[1];
+    //     return somme;
+    // }, {});
+})
+
 // ======================== FEED ========================
 
 let feedBlock = document.querySelector("#feedBlock");

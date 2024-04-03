@@ -22,8 +22,44 @@
 </nav>
 
 <h1>Les livres du moment</h1>
-<div id="feedBlock" class="flex">
+<div class="form-container">
+    <div>
+        <h2>Ajouter un livre</h2>
+    </div>
+    <form action="">
+        <div class="row">
+            <div class="col-25">
+                <label for="tit">Titre</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="tit" name="titre" placeholder="Titre du livre..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="aut">Auteur</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="aut" name="Auteur" placeholder="Nom prénom..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="genre">Genre</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="genre" name="Genre" placeholder="French littérature..">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <input type="submit" value="Enregistrer">
+        </div>
+    </form>
+</div>
 
+<!-- FEED -->
+<div id="feedBlock" class="flex-wrap">
 </div>
 
 <script src="/js/index.js"></script>
