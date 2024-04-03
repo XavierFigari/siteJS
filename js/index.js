@@ -1,3 +1,24 @@
+// ======================== DROPDOWN ========================
+
+document.getElementById('menuBtn').onclick = () => toggleDropdown(false);
+
+function toggleDropdown(closeOnly) {
+    const dropdownContent = document.getElementById("myDropdown");
+    if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+    } else if (closeOnly === false){
+        dropdownContent.style.display = "block";
+    }
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        toggleDropdown(true);
+    }
+}
+
+// ======================== FEED ========================
+
 let feedBlock = document.querySelector("#feedBlock");
 
 // let resp = fetch("https://fakerapi.it/api/v1/books?_locale=fr_FR&_quantity=5")
@@ -19,9 +40,9 @@ function displayFeed(data) {
 }
 
 function bookHtml(book) {
-    console.log(book);
-    console.log(book.formats["image/jpeg"]);
-    const author = (book.authors.length === 0) ? "inconnu" : book.authors[0].name ;
+    // console.log(book);
+    // console.log(book.formats["image/jpeg"]);
+    const author = (book.authors.length === 0) ? "inconnu" : book.authors[0].name;
     let htmlSegment =
         `<div class="book">
             <h3>${book.title}</h3>

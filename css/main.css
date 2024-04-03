@@ -1,7 +1,15 @@
+/* ======== ALL ======= */
+* {
+    font-family: 'Poppins', sans-serif;
+
+}
+
 .flex {
     display: flex;
     flex-wrap: wrap;
 }
+
+/* ======== FEED ======= */
 
 #feedBlock{
     /*border: 1px solid brown;*/
@@ -20,3 +28,42 @@ h3 {
     color: #ff7b0b
 }
 
+/* Drop Down Styles
+================================ */
+
+ .dropdown {
+     left: 40%;
+     text-align: center;
+     position: relative;
+     display: inline-block;
+ }
+
+.dropbtn {
+    /* Bouton "Menu" vert */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    /* Notre menu dropdown complet */
+    display: none; /* Par défaut : non affiché */
+    position: absolute;
+    background-color: #fcde99;
+    min-width: 100px;
+    box-shadow: 2px 8px 16px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none; /* pour enlever le soulignement du lien */
+    display: block; /* sinon tout est écrasé et le padding ne s'applique pas */
+}
+
+.dropdown-content a:hover {
+    background-color: #E0E0E0;
+}
