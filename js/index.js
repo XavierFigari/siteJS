@@ -24,11 +24,14 @@ form.addEventListener("submit", ev => {
     const formData = new FormData(form);
     const entries = formData.entries();
     const book = Object.fromEntries(entries);
-    
+    console.log(book);
     // const array = Array.from(entries).reduce((somme,value) => {
     //     somme[value[0]] = value[1];
     //     return somme;
     // }, {});
+    const bookNode = document.createElement('div')
+    bookNode.innerHTML = bookFormToHtml(book);
+    feedBlock.appendChild(bookNode);
 })
 
 // ======================== FEED ========================
@@ -64,6 +67,18 @@ function bookHtml(book) {
             <ul>
                 <li>Auteur : ${author}</li>
                 <li>Genre : ${book.bookshelves[0]}</li>
+            </ul>
+         </div>`;
+    return htmlSegment;
+}
+
+function bookFormToHtml(book) {
+    let htmlSegment =
+        `<div class="book">
+            <h3>${book.titre}</h3>
+            <ul>
+                <li>Auteur : ${book.Auteur}</li>
+                <li>Genre : ${book.Genre}</li>
             </ul>
          </div>`;
     return htmlSegment;
