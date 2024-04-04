@@ -9,6 +9,15 @@
     flex-wrap: wrap;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 /* ======== FEED Home page ======= */
 
 #feedBlock{
@@ -86,14 +95,70 @@ input[type=submit]:hover {
 
 /* ================ GALLERY ============= */
 
+.img {
+    max-width: 100%;
+    max-height: 250px;
+}
 .image {
-    width: 500px;
+    width: 250px;
     padding: 5px;
     margin: 5px ;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 5px black;
 }
+
+/* ======== gallery toggle button ========*/
+
+.toggleBlock {
+    margin : 10px 5px;
+    align-items: center;
+}
+
+.btn-text {
+    margin-left: 5px;
+    color: #494949;
+}
+
+.toggle {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border: 2px solid #494949;
+    border-radius: 20px;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.circle {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    background-color: #494949;
+    transition: .3s;
+}
+
+.active {
+    /*border-color: rgb(85, 227, 180);*/
+}
+
+.active + .btn-text {
+    /*color: rgb(85, 227, 180);*/
+}
+
+.active .circle {
+    left: 100%;
+    transform: translateX(-100%);
+    transition: .3s;
+    background-color: #4CAF50;
+}
+
+
 
 /* Drop Down Menu
 ================================ */

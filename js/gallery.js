@@ -27,7 +27,35 @@ function imageHtml(image) {
     let htmlSegment =
         `<div class="image">
             ${image.author}
-            <img src="${image.download_url}" width="100%">
+            <img class="img" src="${image.download_url}">
          </div> `;
     return htmlSegment;
+}
+
+// =========== TOGGLE IMAGE DISPLAY : mosaic or column ==========
+
+// document.getElementById('imgDisplayBtn').onclick = () =>  {
+//     const feedImgBlock = document.getElementById("feedImgBlock");
+//     const imgDisplayBtn = document.getElementById("imgDisplayBtn");
+//     if (feedImgBlock.className === "flex-wrap") {
+//         feedImgBlock.className = "flex-column";
+//         imgDisplayBtn.innerText = "Afficher en mosaïque";
+//     } else {
+//         feedImgBlock.className = "flex-wrap";
+//         imgDisplayBtn.innerText = "Afficher en colonnes";
+//     }
+// }
+
+let columnActive = false;
+
+document.getElementById('joliBouton').onclick = () =>  {
+    let toggle = document.querySelector('.toggle')
+    columnActive = !columnActive
+    if (columnActive) {
+        toggle.classList.add('active');
+        feedImgBlock.className = "flex-column";
+    } else {
+        toggle.classList.remove('active');
+        feedImgBlock.className = "flex-wrap";
+    }
 }
