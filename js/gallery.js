@@ -11,7 +11,6 @@ let resp = fetch("https://picsum.photos/v2/list?page=3")
     })
 
 function displayFeedImg(images) {
-    console.log(images);
     let html = '';
     for (let key in images) {
         html += imageHtml(images[key]);
@@ -21,9 +20,6 @@ function displayFeedImg(images) {
 }
 
 function imageHtml(image) {
-    // console.log(book);
-    // console.log(book.formats["image/jpeg"]);
-    console.log(image);
     let htmlSegment =
         `<div class="image">
             ${image.author}
@@ -58,4 +54,41 @@ document.getElementById('joliBouton').onclick = () =>  {
         toggle.classList.remove('active');
         feedImgBlock.className = "flex-wrap";
     }
+}
+
+// ====================== Bouton pour ajouter une image =============
+
+// ne fait qu'afficher le formulaire déjà présent dans le HTML
+
+const formBox = document.querySelector('#formBox');
+
+document.getElementById('addImgBtn').onclick = () =>  {
+    if (formBox.style.display === "block") {
+        formBox.style.display = "none";
+    } else {
+        formBox.style.display = "block";
+    }
+}
+
+// ====================== formulaire ajout image ====================
+const formImg = document.querySelector('#addImg');
+formImg.addEventListener("submit", ev => {
+    ev.preventDefault();
+    const formData = new FormData(formImg);
+    const entries = formData.entries();
+    const image = Object.fromEntries(entries);
+    console.log(image);
+    const imgNode = document.createElement('div')
+    imgNode.innerHTML = imgFormToHtml(image);
+    feedImgBlock.insertBefore(imgNode, feedImgBlock.firstChild);
+    formBox.style.display = "none";
+})
+
+function imgFormToHtml(image) {
+    let htmlSegment =
+        `<div class="image">
+            ${image.auteur}
+            <img class="img" src="${image.url}">
+         </div>`;
+    return htmlSegment;
 }
