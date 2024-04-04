@@ -14,6 +14,7 @@ form.addEventListener("submit", ev => {
     // }, {});
     const bookNode = document.createElement('div')
     bookNode.innerHTML = bookFormToHtml(book);
+    bookNode.textContent
     const insertNode = feedBlock.insertBefore(bookNode, feedBlock.firstChild);
 })
 
