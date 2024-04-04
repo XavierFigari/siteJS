@@ -8,19 +8,26 @@
 <body>
 
 
-<nav class="box flex">
-    <p>Menu</p>
-    <p>I love JS</p>
-    <p>Logo</p>
+<nav>
+    <div class="dropdown">
+        <button id="menuBtn" class="dropbtn">
+            Menu
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="/html/index.html">Feed</a>
+            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/games.html">Jeux</a>
+        </div>
+    </div>
 </nav>
 
 <h1>Galerie</h1>
 
-<div class="box galleryContainer">
-    Pictures
+<!-- FEED -->
+<div id="feedImgBlock" class="flex-wrap">
 </div>
 
-
-<script src="../js/gallery.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/gallery.js"></script>
 </body>
 </html>
