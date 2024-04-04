@@ -1,21 +1,4 @@
-// ======================== DROPDOWN ========================
 
-document.getElementById('menuBtn').onclick = () => toggleDropdown(false);
-
-function toggleDropdown(closeOnly) {
-    const dropdownContent = document.getElementById("myDropdown");
-    if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-    } else if (closeOnly === false){
-        dropdownContent.style.display = "block";
-    }
-}
-
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtn')) {
-        toggleDropdown(true);
-    }
-}
 
 // ====================== formulaire ====================
 const form = document.querySelector('form');
@@ -31,7 +14,7 @@ form.addEventListener("submit", ev => {
     // }, {});
     const bookNode = document.createElement('div')
     bookNode.innerHTML = bookFormToHtml(book);
-    feedBlock.appendChild(bookNode);
+    const insertNode = feedBlock.insertBefore(bookNode, feedBlock.firstChild);
 })
 
 // ======================== FEED ========================
