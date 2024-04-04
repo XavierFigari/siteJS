@@ -23,24 +23,65 @@
 
 <h1>Galerie</h1>
 
-<div>
-    <!--<button id="imgDisplayBtn" class="dropbtn">
-        Afficher en colonnes
-    </button>-->
+<div class="flex-around">
+    <!-- TOGGLE BUTTON : MOSAIC / COLUMN -->
+    <div>
+        <!--<button id="imgDisplayBtn" class="dropbtn">
+            Afficher en colonnes
+        </button>-->
 
-    <div class="flex-wrap toggleBlock">
-        <div id="joliBouton" class="toggle">
-            <div class="circle"></div>
+        <div class="flex-wrap toggleBlock">
+            <div id="joliBouton" class="toggle">
+                <div class="circle"></div>
+            </div>
+            <span class="btn-text">Afficher en colonne</span>
         </div>
-        <span class="btn-text">Afficher en colonne</span>
+
     </div>
 
+    <!-- AJOUTER UNE IMAGE -->
+    <div>
+        <button id="addImgBtn" class="dropbtn">
+            Ajouter une image
+        </button>
+    </div>
 </div>
 
-<!-- FEED -->
+<!------------- FORMULAIRE AJOUT IMAGE --------------->
+<div id="formBox" class="box-fixed-centered">
+    <div>
+        <h2>Ajouter une image</h2>
+    </div>
+    <form id="addImg" action="">
+        <div class="row">
+            <div class="col-25">
+                <label for="url">URL</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="url" name="url" placeholder="http://...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="aut">Auteur</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="aut" name="auteur" placeholder="Nom prénom..">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <input type="submit" value="Enregistrer">
+        </div>
+    </form>
+</div>
+
+
+<!-- FEED IMAGES FROM API -->
 <div id="feedImgBlock" class="flex-wrap">
 </div>
 
+<!-- JS INCLUDE -->
 <script src="/js/nav.js"></script>
 <script src="/js/gallery.js"></script>
 </body>
