@@ -7,7 +7,6 @@ let resp = fetch("https://picsum.photos/v2/list?page=3")
     .then(response => response.json()) // transforme le résultat de l'API en JSON
     .then(data => {
         displayFeedImg(data);
-
     })
 
 function displayFeedImg(images) {
@@ -24,6 +23,7 @@ function imageHtml(image) {
         `<div class="image">
             ${image.author}
             <img class="img" src="${image.download_url}">
+<!--            <div class="deleteButton">X</div>-->
          </div> `;
     return htmlSegment;
 }
@@ -44,7 +44,7 @@ function imageHtml(image) {
 
 let columnActive = false;
 
-document.getElementById('joliBouton').onclick = () =>  {
+document.getElementById('joliBouton').onclick = () => {
     let toggle = document.querySelector('.toggle')
     columnActive = !columnActive
     if (columnActive) {
@@ -62,7 +62,7 @@ document.getElementById('joliBouton').onclick = () =>  {
 
 const formBox = document.querySelector('#formBox');
 
-document.getElementById('addImgBtn').onclick = () =>  {
+document.getElementById('addImgBtn').onclick = () => {
     if (formBox.style.display === "block") {
         formBox.style.display = "none";
     } else {
@@ -77,18 +77,34 @@ formImg.addEventListener("submit", ev => {
     const formData = new FormData(formImg);
     const entries = formData.entries();
     const image = Object.fromEntries(entries);
-    console.log(image);
-    const imgNode = document.createElement('div')
-    imgNode.innerHTML = imgFormToHtml(image);
+    const imgNode = document.createElement("div");
+    imgNode.innerHTML = imgFormToHtml(image); // <div class="image">
+    imgNode.className = "image";
     feedImgBlock.insertBefore(imgNode, feedImgBlock.firstChild);
     formBox.style.display = "none";
+    const deleteElement = imgNode.querySelector(".deleteButton");
+    deleteElement.addEventListener("click", ev => {
+        console.log(ev.target);
+        const parentElement = ev.target.parentElement;
+        feedImgBlock.removeChild(ev.target.parentElement);
+    });
 })
 
 function imgFormToHtml(image) {
     let htmlSegment =
-        `<div class="image">
-            ${image.auteur}
+        `   ${image.auteur}
             <img class="img" src="${image.url}">
-         </div>`;
+            <div class="deleteButton">X</div>`;
     return htmlSegment;
 }
+
+// ============ Suppression de n'importe quelle image si on y a mis un bouton .deleteButton ================
+// const deleteElements = document.querySelector(".deleteButton");
+// console.log(deleteElements);
+// deleteElements.addEventListener("click", ev => {
+//     console.log(ev.target);
+//     // console.log(ev.target.parentElement);
+//     const parentElement = ev.target.parentElement;
+//     feedImgBlock.removeChild(ev.target.parentElement);
+//
+// });

@@ -14,8 +14,14 @@ form.addEventListener("submit", ev => {
     // }, {});
     const bookNode = document.createElement('div')
     bookNode.innerHTML = bookFormToHtml(book);
-    bookNode.textContent
-    const insertNode = feedBlock.insertBefore(bookNode, feedBlock.firstChild);
+    bookNode.className = "book";
+    feedBlock.insertBefore(bookNode, feedBlock.firstChild);
+
+    const deleteElement = bookNode.querySelector(".deleteButton");
+    deleteElement.addEventListener("click", ev => {
+        feedBlock.removeChild(ev.target.parentElement);
+    });
+
 })
 
 // ======================== FEED ========================
@@ -58,13 +64,12 @@ function bookHtml(book) {
 
 function bookFormToHtml(book) {
     let htmlSegment =
-        `<div class="book">
-            <h3>${book.titre}</h3>
+        `   <h3>${book.titre}</h3>
             <ul>
                 <li>Auteur : ${book.Auteur}</li>
                 <li>Genre : ${book.Genre}</li>
             </ul>
-         </div>`;
+            <div class="deleteButton">X</div>`;
     return htmlSegment;
 }
 

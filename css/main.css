@@ -9,11 +9,16 @@
     flex-wrap: wrap;
 }
 
+
 .flex-around {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.justify-content-center {
+    justify-content: center;
 }
 
 .align-items-center {
@@ -121,6 +126,10 @@ input[type=submit]:hover {
 
 /* ================ GALLERY ============= */
 
+#feedImgBlock{
+    border: 1px solid black;
+}
+
 .img {
     max-width: 100%;
     max-height: 250px;
@@ -132,8 +141,18 @@ input[type=submit]:hover {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 5px black;
+    text-align: center;
 }
 
+.deleteButton {
+    width: 20px;
+    text-align: center;
+    background: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+}
 /* ======== gallery toggle button ========*/
 
 .toggleBlock {
