@@ -5,8 +5,8 @@ let feedImgBlock = document.querySelector("#feedImgBlock");
 // let resp = fetch("https://fakerapi.it/api/v1/books?_locale=fr_FR&_quantity=5")
 let resp = fetch("https://picsum.photos/v2/list?page=3")
     .then(response => response.json()) // transforme le résultat de l'API en JSON
-    .then(data => {
-        displayFeedImg(data);
+    .then(images => {
+        displayFeedImg(images);
     })
 
 function displayFeedImg(images) {
@@ -108,3 +108,37 @@ function imgFormToHtml(image) {
 //     feedImgBlock.removeChild(ev.target.parentElement);
 //
 // });
+
+// =================== CAROUSEL =================
+
+fetch('https://thronesapi.com/api/v2/Characters')
+    .then(response => response.json())
+    .then(json => fillCarousel(json) ) ;
+// console.log(json.results[0].url)
+
+const slidesContainer = document.getElementById("slides-container");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+
+nextButton.addEventListener("click", (event) => {
+    const slide = document.querySelector(".slide");
+    const slideWidth = slide.clientWidth;
+    console.log(slideWidth);
+    slidesContainer.scrollLeft += slideWidth;
+});
+
+prevButton.addEventListener("click", () => {
+    const slide = document.querySelector(".slide");
+    const slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft -= slideWidth; // slideWidth;
+});
+
+function fillCarousel(images) {
+    let html = ''; //json.results[0].url
+    console.log(images);
+    for (let key in images) {
+        html += `<img class="slide" src="${images[key].imageUrl}">`  ;
+    }
+    html += ''
+    slidesContainer.innerHTML = html;
+}
