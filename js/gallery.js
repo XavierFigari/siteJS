@@ -85,7 +85,6 @@ formImg.addEventListener("submit", ev => {
     const deleteElement = imgNode.querySelector(".deleteButton");
     deleteElement.addEventListener("click", ev => {
         console.log(ev.target);
-        // console.log(ev.target.parentElement);
         const parentElement = ev.target.parentElement;
         feedImgBlock.removeChild(ev.target.parentElement);
     });
