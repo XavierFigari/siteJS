@@ -8,19 +8,61 @@
 <body>
 
 
-<nav class="box flex">
-    <p>Menu</p>
-    <p>I love JS</p>
-    <p>Logo</p>
+<nav>
+    <div class="dropdown">
+        <button id="menuBtn" class="dropbtn">
+            Menu
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="/html/index.html">Feed</a>
+            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/games.html">Jeux</a>
+        </div>
+    </div>
 </nav>
 
 <h1>Jeux</h1>
 
-<div class="box gameContainer">
-    Mes petits jeux sympa
+<div class="gameBox">
+    <button id="chifoumi">Jouer au Chifoumi</button>
+</div>
+
+<div id="chifoumiGameBox" class="chifoumiGameBox">
+
+    <div id="chifoumiImageBox" class="chifoumiImageBox">
+        <img id="papier" class="chifoumiImg"
+             src="https://static4.depositphotos.com/1000992/512/i/950/depositphotos_5124840-stock-photo-old-paper-sheet.jpg"
+             alt="papier">
+        <img id="caillou" class="chifoumiImg"
+             src="https://stickeramoi.com/16831-thickbox_default/sticker-galet-pierre-cailloux-gris.jpg" alt="caillou">
+        <img id="ciseaux" class="chifoumiImg"
+             src="https://i.pinimg.com/originals/cf/1a/55/cf1a55dfd90848cfa9efcb07e3261607.jpg" alt="ciseaux">
+    </div>
+
+
+    <div class="chifoumiResult">
+        Mon choix
+        <div style="display:flex;justify-content: center">
+            <img id="papier1" class="chifoumiImg"
+                 src="https://static4.depositphotos.com/1000992/512/i/950/depositphotos_5124840-stock-photo-old-paper-sheet.jpg"
+                 alt="papier">
+            <img id="caillou1" class="chifoumiImg"
+                 src="https://stickeramoi.com/16831-thickbox_default/sticker-galet-pierre-cailloux-gris.jpg"
+                 alt="caillou">
+            <img id="ciseaux1" class="chifoumiImg"
+                 src="https://i.pinimg.com/originals/cf/1a/55/cf1a55dfd90848cfa9efcb07e3261607.jpg" alt="ciseaux">
+        </div>
+
+        <div id="resultBox" class="chifoumiResultBox">
+
+        </div>
+    </div>
+
+
 </div>
 
 
-<script src="../js/games.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/games.js"></script>
 </body>
 </html>
